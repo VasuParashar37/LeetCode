@@ -1,15 +1,24 @@
 class Solution {
     public int findNumbers(int[] nums) {
-        int evenNumber = 0;
+        // Brute-Force Solution---------------------
+        // int evenNumber = 0;
+        // for(int i=0;i<nums.length;i++){
+        //     int countDigits=0;
+        //     while(nums[i]>0){
+        //         nums[i] = nums[i]/10;
+        //         countDigits++;
+        //     }
+        //     if(countDigits%2==0)
+        //         evenNumber++;
+        // }
+        // return evenNumber;
+
+        //optimal
+        int evenCount = 0;
         for(int i=0;i<nums.length;i++){
-            int countDigits=0;
-            while(nums[i]>0){
-                nums[i] = nums[i]/10;
-                countDigits++;
-            }
-            if(countDigits%2==0)
-                evenNumber++;
+            String num = Integer.toString(nums[i]);
+            if(num.length()%2==0)evenCount++;
         }
-        return evenNumber;
+        return evenCount;
     }
 }
