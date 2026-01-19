@@ -1,5 +1,6 @@
 class Solution {
     public boolean isPalindrome(String s) {
+        //this is the second solution
         s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
         System.out.println(s);
         int i=0;
