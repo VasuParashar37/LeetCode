@@ -1,0 +1,14 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int sum = nums[0];
+        int maxSum = nums[0];
+        for(int i=1;i<nums.length;i++){
+            sum = Math.max(nums[i], sum+nums[i]);
+            maxSum = Math.max(maxSum, sum);
+        }
+        return maxSum;
+    }
+}
+
+// mera pehle sum nums[i] hai fir 1st iteration k bad agar nums[i] ko add karne pr mera sum m mera sum chota ho gya nums[i] se to sum ko discard krenge or nums[i] ko apna sum maan lenge or maxSum bhi isi ko bana denge. 
+// If nums[i] ko add karne pr agar sum chota nai hua nums[i] se to sum ko sum m add krenge or maxSum ko ham sum bana denge jo ki max h.
