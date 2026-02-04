@@ -1,20 +1,37 @@
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-        HashMap<Integer,Integer>map=new HashMap<>();
-        ArrayList<Integer>list=new ArrayList<>();
-        for(int i=0;i<nums1.length;i++){
-            map.put(nums1[i],map.getOrDefault(nums1[i],0)+1);
+        HashSet<Integer>set = new HashSet<>();
+        HashSet<Integer>set2 = new HashSet<>();
+        if(nums1.length<nums2.length){
+            set = addInSet(nums1);
+            set2 = checkElement(nums2, set);
+        } 
+        else{
+            set = addInSet(nums2);
+            set2 = checkElement(nums1, set);
+        } 
+        int[]arr=new int[set2.size()];
+        int i=0;
+        for(Integer s:set2){
+            arr[i]=s;
+            i++;
         }
-        for(int i=0;i<nums2.length;i++){
-            if(map.containsKey(nums2[i])){
-                list.add(nums2[i]);
-                map.remove(nums2[i]);
-            }
+        return arr;
+    }
+    public HashSet<Integer> checkElement(int[]arr, HashSet<Integer>set){
+        HashSet<Integer>set2 = new HashSet<>();
+        for(int i=0;i<arr.length;i++){
+            if(set.contains(arr[i]))set2.add(arr[i]);
         }
-        int[] result = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            result[i] = list.get(i);
+        return set2;
+    }
+    public HashSet<Integer> addInSet(int[]arr){
+        HashSet<Integer>set=new HashSet<>();
+        int i=0;
+        while(i<arr.length){
+            set.add(arr[i]);
+            i++;
         }
-        return result;
+        return set;
     }
 }
