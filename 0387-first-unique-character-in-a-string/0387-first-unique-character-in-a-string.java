@@ -1,9 +1,18 @@
 class Solution {
     public int firstUniqChar(String s) {
-        int[]freq=new int[26];
-        for(char ch:s.toCharArray()) freq[ch-'a']++;
-        for(int i=0;i<s.length();i++)
-            if(freq[s.charAt(i)-'a']==1)return i;
+        boolean isUnique;
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            isUnique = true;
+            for(int j=0;j<s.length();j++){
+                if(i!=j && ch==s.charAt(j)){
+                    isUnique = false;
+                    break;
+                }
+            }
+            System.out.println(isUnique);
+            if(isUnique)return i;
+        }
         return -1;
     }
 }
