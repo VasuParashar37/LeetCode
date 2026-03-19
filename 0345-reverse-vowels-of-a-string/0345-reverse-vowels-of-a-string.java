@@ -4,9 +4,7 @@ class Solution {
         char[]arr = s.toCharArray();
         while(i<j){
             char ich = Character.toUpperCase(arr[i]);
-            System.out.println(ich);
             char jch = Character.toUpperCase(arr[j]);
-            System.out.println(jch);
             while(i<j && !(ich=='A'||ich=='E'||ich=='I'||ich=='O'||ich=='U')){
                 i++;
                 ich = Character.toUpperCase(arr[i]);
