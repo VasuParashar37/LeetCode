@@ -8,7 +8,7 @@ class Solution {
             map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
             if(map.get(nums[i])>1)count++;
         }
-        if((sum - ((n-1)*(n)/2))==max && map.get(max)==2 && count==1)return true;
+        if(n==max+1 && map.get(max)==2 && count==1)return true;
         else return false;
     }
 }
