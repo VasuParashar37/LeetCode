@@ -7,7 +7,6 @@ class Solution {
                 ele/=10;
             }
         }
-        System.out.println(set);
         for(int ele:arr2){
             while(ele!=0){
                 if(set.contains(ele))
